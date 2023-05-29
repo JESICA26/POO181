@@ -1,0 +1,240 @@
+*{ 
+margin:0;
+padding:0;
+border:0;
+font: size 100%;
+vertical-align:baseline;
+
+}
+body {
+
+text-align:center;
+font-family:sans-serif;
+
+ }
+ .head { 
+display:flex;
+align-items:center;
+justify-content: space-between;
+height: 63px;
+background:#171717;
+position:fixed;
+width:100%;
+z-index:100;
+
+ }
+ .navbar {
+  display:flex;
+  margin-right:10px;
+
+
+  }
+  .logo {
+    margin-left:30px;
+}
+.logo a{
+    text-decoration:none;
+    color:#2980B9;
+    text-transform:uppercase;
+    font-size:20px;
+ }
+
+.navbar a{
+    display:block;
+    padding:2px 20px;
+    color:#fff;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:20px;
+
+ }
+.navbar a:hover{ 
+    background:#48C9B0;
+}
+.header{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:60vh;
+    background:url(img/header.jpg) no-repeat center;
+    background-size:cover;
+ }
+ .title{
+    margin-bottom:40px;
+    font-size:60px;
+    font: weight 600px;
+    text-transform:uppercase;
+    color:#45B39D;
+  }
+  p{
+    margin-bottom:40px;
+    font-size:18px;
+    color:#138D75;
+    padding:0 100px;
+   }
+   .btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 40px;
+border:2px solid #76D7C4 ;
+color:#fff;
+text-decoration:none;
+background:#48C9B0;
+    }
+    .btn:hover
+    {
+      background:none;  
+     }
+     .content { 
+        height:50hv;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+
+        align-items:center;
+     }
+     .sau{ 
+        padding:50px 0;
+        background:#A3E4D7 ;
+
+    
+
+     }
+     .box{ 
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        text-align:centers;
+     }
+     .box-container.box{ 
+        height:170px;
+        width:270px;
+        background:#1ABC9C  ;
+        text-align:center;
+        border-radius:20px;
+        box-shadow:0 5px 5px rgba(0,0,0,.3);
+        margin:20px;
+
+     }
+     .box-container.box i{ 
+        height:50px;
+        width:50px;
+        line-height:50px;
+        text-align:center;
+        border-radius:50%;
+        color:#fff;
+        background:#1ABC9C;
+        font-size:25px;
+        margin:10px 0;
+
+     }
+     .box-container .box h3{ 
+        font-size:20px;
+        color:#45B39D ;
+     }
+
+     .box-container .box p{
+        padding:0 15 px;
+        font-size:16px;
+
+      }
+      .price {
+        background:url(img/he.avif) no-repeat center;
+        background-size:cover;
+        background-attachment:fixed;
+        text-align:center;
+       }
+      .about{ 
+        background:#A3E4D7;
+        padding:50 px 0;
+      }
+
+.box-container2{ 
+    display:flex;
+    justify-content:center;
+    padding-top:50;
+    flex-wrap: wrap;
+}
+.box-container2.box{ 
+    width:250;
+    padding-bottom:20px;
+    text-align:center;
+    box-shadow:0 5px 5px rgba(0,0,0,.3);
+    background:#fff;
+    margin: 20px 20px;
+}
+.box-container2 .box img{
+    height:70px;
+    width: 70px;
+    object-fit: cover;
+    border-radius:50%;
+    margin-top:-50px;
+    border: 6px solid #2980B9;
+ }
+ .box-container2 .box h3{ 
+    font-size: 20px;
+    color:#2980B9;
+    padding-top:10px;
+
+ }
+
+ .box-container2{
+    font-size:18px;
+    color:#fff;
+    padding:0;
+  }
+  .-container2 .box .stars i{ 
+    font-size:15px;
+    color:#2980B9;
+  }
+
+
+      .contact{
+        padding:50px 0;
+        background:#1ABC9C;
+       }
+
+       .footer-section{
+        display: flex;
+
+        }
+
+        .f-enlaces{
+            display:flex;
+            flex-direction: column;
+            margin: 0 100px;
+         }
+         .f-enlaces a{
+            color:#fff;
+            text-decoration:none;
+            margin-top:20px;
+          }
+
+          @media(max-width:768px){
+            .title { 
+                margin-bottom :0px;
+                font-size:40px;
+            }
+.sau{
+    height:80vh;
+    padding:50px 0;
+ }
+ .about{
+    height:80vh;
+    padding: 50px 0;
+  }
+  .footer-section{
+    display:flex;
+    flex-direction:column;
+   }
+   .f enlaces{ 
+    display:none;
+   }
+   .navbar{
+    display:none;
+    }
+          }
+
+
+
+
