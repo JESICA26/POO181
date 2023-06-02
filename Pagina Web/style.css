@@ -49,14 +49,14 @@ z-index:100;
 
  }
 .navbar a:hover{ 
-    background:#48C9B0;
+    background:#5DADE2  ;
 }
 .header{
     display:flex;
     justify-content:center;
     align-items:center;
     height:60vh;
-    background:url(img/header.jpg) no-repeat center;
+    background:url() no-repeat center;
     background-size:cover;
  }
  .title{
@@ -64,22 +64,22 @@ z-index:100;
     font-size:60px;
     font: weight 600px;
     text-transform:uppercase;
-    color:#45B39D;
+    color:#85C1E9;
   }
   p{
     margin-bottom:40px;
     font-size:18px;
-    color:#138D75;
+    color:#2E86C1;
     padding:0 100px;
    }
    .btn{
 display:inline-block;
 margin-top:15px;
 padding:10px 40px;
-border:2px solid #76D7C4 ;
+border:2px solid #2874A6 ;
 color:#fff;
 text-decoration:none;
-background:#48C9B0;
+background:#2E86C1 ;
     }
     .btn:hover
     {
@@ -95,7 +95,7 @@ background:#48C9B0;
      }
      .sau{ 
         padding:50px 0;
-        background:#A3E4D7 ;
+        background:#21618C ;
 
     
 
@@ -109,7 +109,7 @@ background:#48C9B0;
      .box-container.box{ 
         height:170px;
         width:270px;
-        background:#1ABC9C  ;
+        background:#21618C  ;
         text-align:center;
         border-radius:20px;
         box-shadow:0 5px 5px rgba(0,0,0,.3);
@@ -122,15 +122,15 @@ background:#48C9B0;
         line-height:50px;
         text-align:center;
         border-radius:50%;
-        color:#fff;
-        background:#1ABC9C;
+        color:#5499C7;
+        background:#2874A6;
         font-size:25px;
         margin:10px 0;
 
      }
      .box-container .box h3{ 
         font-size:20px;
-        color:#45B39D ;
+        color: #5DADE2  ;
      }
 
      .box-container .box p{
@@ -145,7 +145,7 @@ background:#48C9B0;
         text-align:center;
        }
       .about{ 
-        background:#A3E4D7;
+        background:#5DADE2;
         padding:50 px 0;
       }
 
@@ -160,7 +160,7 @@ background:#48C9B0;
     padding-bottom:20px;
     text-align:center;
     box-shadow:0 5px 5px rgba(0,0,0,.3);
-    background:#fff;
+    background:#85C1E9;
     margin: 20px 20px;
 }
 .box-container2 .box img{
@@ -191,7 +191,7 @@ background:#48C9B0;
 
       .contact{
         padding:50px 0;
-        background:#1ABC9C;
+        background:#2874A6;
        }
 
        .footer-section{
