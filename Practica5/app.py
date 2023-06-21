@@ -1,55 +1,43 @@
-#importacion del framework
-
-from flask import Flask, render_template,request
-
+#paquteria de flask
+from flask import Flask,render_template,request,redirect,url_for,flash
 from flask_mysqldb import MySQL
 
- #Inicializacion del APP
+#la inicializacion del app 
 app=Flask(__name__)
 
-#Configuracion de la conexion 
-
-app.config ['MYSQL_HOST']='localhost'
-app.config ['MYSQL_USER']='root'
-app.config ['MYSQL_PASSWORD']=''
-app.config ['MYSQL_DB']='dbflask'
-mysql=MySQL(app)
-
-
-
- #Declaracion de la ruta http://localhost:5000
+app.config['MYSQL_HOST']='localhost'
+app.config['MYSQL_USER']='root'
+app.config['MYSQL_PASSWORD']=''
+app.config['MYSQL_DB']='dbflask'
+app.secret_key='mysecretkey'
+MySQL=MySQL(app)
+#declaracion o inicializacion de las rutas y le pertenece a http://localhost:5000
 @app.route('/')
 def index():
-    return render_template ('index.html')
-
-
-@app.route('/guardar',methods=['POST' ])
-def guardar():
-    
-    return render_template('index.html')
+        return render_template('index.html')
 @app.route('/guardar',methods=['POST'])
 def guardar():
     if request.method == 'POST':
-        titulo=request.form['txtTitulo']
-        artista=request.form['textArtista']
-        anio=request.form['txtAnio']
-        print(titulo,artista,anio)
+        Vtitulo=request.form['txtTitulo']
+        Vartista=request.form['textArtista']
+        Vanio=request.form['txtAnio']
+       
 
-    return "Se guardo en la Base de Datos"
-
+        #conectar y ejecutar el insert 
+        CS= MySQL.connection.cursor()
+        CS.execute('insert into Albums(titulo,artista,anio) values(%s,%s,%s)',(Vtitulo,Vartista,Vanio))
+        MySQL.connection.commit()
+        
+    flash ('El albumfue agregado correctamente')
+        
+    return redirect(url_for('index'))
 
 
 @app.route('/eliminar')
 def eliminar():
-    return "Se elimino en la BD"
+    return "Se elimino de la Base de Datos"
 
 
-
-
-
-
- #ejecucion del servidor en el puerto 5000
-if __name__ =='__main__':
-    app.run(port=5000)
-
-
+#ejecucion del servidor y asignacion del puerto a trabajar
+if __name__ == '__main__':
+        app.run(port=5000 ,debug= True)

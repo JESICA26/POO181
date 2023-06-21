@@ -7,18 +7,21 @@
 </head>
 <body>
     <br>
+    <h1>GESTION DE ALBUMS</h1>
     <br>
-    <h1>Gestion de albums</h1>
+    {%  with mensajes = get_flashed_messages() %}
+        {%if  mensajes %}
+            {%for  msj in mensajes %}
+                <h3> {{  msj }} </h3>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <br>
-
-    <form action="/guardar"> method=POST">
-
-    <form action="">
-<input type="text" name="txtTitulo" placeholder="Escribe Titulo">
-<input type="text" name="txtArtista" placeholder="Escribe el artista">
-<input type="text" name="txAnio" placeholder="Escribe el año">
-<button type="submit"> Guardar </button>
-
+    <form action="/guardar" method="POST">
+        <input type="text" name="txtTitulo" placeholder="Escribe Titulo">
+        <input type="text" name="textArtista" placeholder="Escribe artista">
+        <input type="number" name="txtAnio" placeholder="Escribe año">
+        <button type="submit">GUARDAR</button>
     </form>
-</body
+</body>
 </html>
