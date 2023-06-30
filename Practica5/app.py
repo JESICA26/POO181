@@ -1,43 +1,50 @@
-#paquteria de flask
-from flask import Flask,render_template,request,redirect,url_for,flash
+#Importacion del framework
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 
-#la inicializacion del app 
+#Inicializacion del Servidor
 app=Flask(__name__)
 
+#Configuracion de la conexion
 app.config['MYSQL_HOST']='localhost'
 app.config['MYSQL_USER']='root'
 app.config['MYSQL_PASSWORD']=''
 app.config['MYSQL_DB']='dbflask'
 app.secret_key='mysecretkey'
-MySQL=MySQL(app)
-#declaracion o inicializacion de las rutas y le pertenece a http://localhost:5000
+mysql=MySQL(app)
+
+#Declaracion de la ruta http://localhost:5000
 @app.route('/')
 def index():
-        return render_template('index.html')
-@app.route('/guardar',methods=['POST'])
+    consulta= mysql.connect.cursor()
+    consulta.execute('select * from Albums')
+    conAlbums= consulta.fetchall()
+    #print(conAlbums)
+    return render_template('index.html', albums = conAlbums)
+
+#Ruta http://localhost:5000/guardar tipo POST para insert
+@app.route('/guardar', methods=['POST'])
 def guardar():
     if request.method == 'POST':
-        Vtitulo=request.form['txtTitulo']
-        Vartista=request.form['textArtista']
-        Vanio=request.form['txtAnio']
-       
-
-        #conectar y ejecutar el insert 
-        CS= MySQL.connection.cursor()
-        CS.execute('insert into Albums(titulo,artista,anio) values(%s,%s,%s)',(Vtitulo,Vartista,Vanio))
-        MySQL.connection.commit()
         
-    flash ('El albumfue agregado correctamente')
+        #pasamos a variables el contenido de los input 
+        vtitulo= request.form['txtTitulo']
+        vartista= request.form['txtArtista']
+        vanio= request.form['txtAnio']
+        #print(titulo,artista,anio)
         
+        #Conectar y ejecutar el insert
+        cs = mysql.connection.cursor()
+        cs.execute('insert into Albums(titulo,artista,anio) values (%s,%s,%s)', (vtitulo,vartista,vanio))
+        mysql.connection.commit()
+        
+    flash('El album fue agregado correctamente')
     return redirect(url_for('index'))
 
-
-@app.route('/eliminar')
+@app.route('/eliminar', methods=['POST'])
 def eliminar():
-    return "Se elimino de la Base de Datos"
+    return 'Se elimino en la BD'
 
-
-#ejecucion del servidor y asignacion del puerto a trabajar
+#Ejecucion de nuestro programa
 if __name__ == '__main__':
-        app.run(port=5000 ,debug= True)
+    app.run(port=5000, debug=True)
