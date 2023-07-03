@@ -41,10 +41,18 @@ def guardar():
     flash('El album fue agregado correctamente')
     return redirect(url_for('index'))
 
-@app.route('/eliminar', methods=['POST'])
-def eliminar():
-    return 'Se elimino en la BD'
+@app.route('/editar/<string:id>')
+def editar(id):
+    cursoId=mysql.connection.cursor()
+    cursoId.execute('select * from Albums where id= %s',(id))
+    consulId= cursoId.fetchone()
+    return render_template('editarAlbum.html',album=consulId)
+    
+@app.route('/editar/<actualizar/<id>',methods=['POST'])
+def actualizar(id):
+   
 
 #Ejecucion de nuestro programa
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
+    
