@@ -46,12 +46,26 @@ def editar(id):
     cursoId=mysql.connection.cursor()
     cursoId.execute('select * from Albums where id= %s',(id))
     consulId= cursoId.fetchone()
+    print(consulId)
+    flash('El album fue actualizado correctamente')
     return render_template('editarAlbum.html',album=consulId)
     
-@app.route('/editar/<actualizar/<id>',methods=['POST'])
-def actualizar(id):
-   
+@app.route('/update/<id>', methods=['POST'])
+def update(id):
+   if request.method == 'POST':
+    varTitulo= request.form['txtTitulo']
+    varArtista= request.form['txtArtista']
+    varAnio= request.form['txtAnio']
+    curAct= mysql.connection.cursor()
+    curAct.execute('update Albums set titulo= %s,artista= %s, anio= %s  where id= %s',(varTitulo,varArtista,varAnio,id))
+    mysql.connection.commit()
+    
+    
+    flash('Se actualizo el Album'+varTitulo)    
+    return redirect(url_for('index'))
 
+
+    
 #Ejecucion de nuestro programa
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

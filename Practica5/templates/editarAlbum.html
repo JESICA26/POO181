@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Album</title>
 </head>
 <body>
-    
-    <h1>Album a editar:</h1>
+    {%with mensajes=get_flashed_messages()%}
+        {% if mensajes %}
+            {% for msj in mensajes %}
+                <h3>{{msj}}</h3>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    <h1>Album a editar</h1>
     <br>
     <br>
-      
-    <form action="/editar" method="POST">
-        <input type="text" name="txtTitulo" value="{{album.1}}" >
-        <input type="text" name="txtArtista" value="{{album.2}}">
-        <input type="number" name="txtAnio" value="{{album.3}}" >
-
+    <br>
+    <form action="/update/{{album.0}}" method="post">
+        <input type="text" name="txtTitulo" placeholder="Escribe el titulo" value="{{album.1}}">
+        <input type="text" name="txtArtista" placeholder="Escribe el artista" value="{{album.2}}">
+        <input type="number" name="txtAnio" placeholder="Escribe el año" value="{{album.3}}">
         <button type="submit">Actualizar</button>
-
     </form>
+    
 </body>
 </html>
