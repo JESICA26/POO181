@@ -64,6 +64,26 @@ def update(id):
     flash('Se actualizo el Album'+varTitulo)    
     return redirect(url_for('index'))
 
+@app.route('/eliminar/<id>')
+def eliminar(id):
+    cursorId=mysql.connection.cursor()
+    cursorId.execute('select * from Albums where id=%s',(id,))
+    consId = cursorId.fetchone()
+    return render_template('borraralbum.html', album= consId)
+
+@app.route('/delete/<id>',methods=['POST'])
+def actualizar(id):
+    if request.method == 'POST':
+        varTitulo = request.form['txtTitulo']
+        
+        curAct = mysql.connection.cursor()
+        curAct.execute('delete from Albums where id=%s',(id))
+        mysql.connection.commit()
+    flash('Se borró el Album '+varTitulo)
+    return redirect(url_for('index'))
+
+
+
 
     
 #Ejecucion de nuestro programa
