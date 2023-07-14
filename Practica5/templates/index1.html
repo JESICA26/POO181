@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Albums</title>
+    <title> Crud Fruteria:</title>
 </head>
 <body>
     <br>
     <br>
-    <h1>Gestion de Albums</h1>
+    <h1>Fruteria</h1>
     <br>
 
     {% with mensajes= get_flashed_messages() %}
@@ -21,9 +21,13 @@
     <br>
     
     <form action="/guardar" method="POST">
-        <input type="text" name="txtTitulo" placeholder="Escribe Titulo">
-        <input type="text" name="txtArtista" placeholder="Escribe Artista">
-        <input type="number" name="txtAnio" placeholder="Escribe Año">
+        <input type="text" name="txtFruta" placeholder="Escribe el nombre de la fruta">
+        <input type="text" name="txtTemporada" placeholder="Escribe la temporada">
+        <input type="text" name="txtprecio" placeholder="Escribe el precio de la fruta:">
+        <input type="text" name="txtstock" placeholder="Escribe la cantidad disponible">
+
+
+
 
         <button type="submit">Guardar</button>
 
@@ -33,15 +37,16 @@
 <br>
 
 
-<h1>Albums Guardados</h1>
+<h1>Frutas guardadas</h1>
 <br>
 <table>
     <thead>
         <tr>
             <td>Id: </td>
-            <td>Album: </td>
-            <td>Artista: </td>
-            <td>Año Publicación: </td>
+            <td>Nombre: </td>
+            <td>Temporada: </td>
+            <td>Precio: </td>
+            <td>Stock: </td>
         </tr>
     </thead>
 
@@ -53,6 +58,7 @@
             <td>{{alb.1}} </td>
             <td>{{alb.2}} </td>
             <td>{{alb.3}} </td>
+            <td>{{alb.4}} </td>
             <td>
                 <a href=/update/{{alb.0}}>Editar</a>
                 <a href=/delete/{{alb.0}}>Borrar</a>

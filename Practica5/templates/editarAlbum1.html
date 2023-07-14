@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Datos</title>
+</head>
+<body>
+    {%with mensajes=get_flashed_messages()%}
+        {% if mensajes %}
+            {% for msj in mensajes %}
+                <h3>{{msj}}</h3>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    <h1>Fruta a editar</h1>
+    <br>
+    <br>
+    <br>
+    <form action="/editar/{{album.0}}" method="post">
+        <input type="text" name="txtFruta" placeholder="Escribe el nombre de la fruta" value="{{album.1}}">
+        <input type="text" name="txtTemporada" placeholder="Escribe el artista" value="{{album.2}}">
+        <input type="number" name="txtprecio" placeholder="Escribe el precio" value="{{album.3}}">
+        <input type="text" name="txtstock" placeholder="Escribe el Stock" value="{{album.4}}">
+
+
+
+        <button type="submit">Actualizar</button>
+    </form>
+    
+</body>
+</html>

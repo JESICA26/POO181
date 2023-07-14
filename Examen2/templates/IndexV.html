@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Albums</title>
+    <title>Floreria</title>
 </head>
 <body>
     <br>
     <br>
-    <h1>Gestion de Albums</h1>
+    <h1>Floreria</h1>
     <br>
 
     {% with mensajes= get_flashed_messages() %}
@@ -21,9 +21,9 @@
     <br>
     
     <form action="/guardar" method="POST">
-        <input type="text" name="txtTitulo" placeholder="Escribe Titulo">
-        <input type="text" name="txtArtista" placeholder="Escribe Artista">
-        <input type="number" name="txtAnio" placeholder="Escribe Año">
+        <input type="text" name="txtNombre" placeholder="Escribe el nombre">
+        <input type="text" name="txtCantidad" placeholder="Escribe la cantidad">
+        <input type="number" name="txtPrecio" placeholder="Escribe el precio">
 
         <button type="submit">Guardar</button>
 
@@ -33,15 +33,15 @@
 <br>
 
 
-<h1>Albums Guardados</h1>
+<h1>Flores Guardadas</h1>
 <br>
 <table>
     <thead>
         <tr>
-            <td>Id: </td>
-            <td>Album: </td>
-            <td>Artista: </td>
-            <td>Año Publicación: </td>
+            <td>Nombre: </td>
+            <td>Cantidad: </td>
+            <td>Precio: </td>
+        
         </tr>
     </thead>
 
@@ -52,7 +52,7 @@
             <td>{{alb.0}} </td>
             <td>{{alb.1}} </td>
             <td>{{alb.2}} </td>
-            <td>{{alb.3}} </td>
+            
             <td>
                 <a href=/update/{{alb.0}}>Editar</a>
                 <a href=/delete/{{alb.0}}>Borrar</a>

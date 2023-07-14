@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Flores</title>
+</head>
+<body>
+    <br>
+    <br>
+    <h1>Actualizar Flores</h1>
+    <br>
+
+    <form action="/actualizarFlores/{{frutas.0}}" method="POST">
+        <input type="text" name="txtNombre" value="{{frutas.1}}" required>
+        <input type="text" name="txtCantidad" value="{{frutas.2}}" required>
+        <input type="number" name="txtPrecio" value="{{frutas.3}}" required>
+       
+        <button type="submit">Actualizar</button>
+
+    </form>
+    <br>
+    <br>
+    <form action="/eliminar_editar"><button type="submit">Regresar</button></form>
+
+
+</body>
+</html>
